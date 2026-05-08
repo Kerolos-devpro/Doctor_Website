@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type NavItem = { href: string; label: string };
 
@@ -65,9 +66,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-xl px-3 py-2 text-sm font-semibold text-foreground/90 transition hover:bg-slate-100"
+                className="group relative rounded-xl px-3 py-2 text-sm font-semibold text-foreground/90 transition-all duration-300 ease-out hover:text-primary"
               >
                 {item.label}
+                <span className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-0.5 origin-center scale-x-0 rounded-full bg-primary/80 transition-transform duration-300 ease-out group-hover:scale-x-100" />
               </Link>
             ))}
           </nav>
@@ -75,7 +77,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Link
               href="/contact"
-              className="btn-accent hidden sm:inline-flex"
+              className="btn-accent hidden sm:inline-flex transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-md"
               aria-label="احجز موعد"
             >
               احجز موعد
@@ -115,43 +117,53 @@ export function Header() {
         </div>
       </div>
 
-      {open ? (
-        <div className="md:hidden">
-          <div
-            className="fixed inset-0 z-40 bg-slate-900/30"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-          <div
-            id="mobile-menu"
-            className="fixed inset-x-0 top-16 z-50 border-b border-border bg-surface shadow-lg"
-            role="dialog"
-            aria-label="قائمة التنقل"
-          >
-            <div className="container-page py-4">
-              <div className="grid gap-2">
-                {navItems.map((item) => (
+      <AnimatePresence>
+        {open ? (
+          <div className="md:hidden">
+            <motion.div
+              className="fixed inset-0 z-40 bg-slate-900/30"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <motion.div
+              id="mobile-menu"
+              className="fixed inset-x-0 top-16 z-50 border-b border-border bg-surface shadow-lg"
+              role="dialog"
+              aria-label="قائمة التنقل"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="container-page py-4">
+                <div className="grid gap-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:bg-slate-50"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                   <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground transition hover:bg-slate-50"
+                    href="/contact"
+                    className="btn-accent mt-2 w-full transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-md"
                     onClick={() => setOpen(false)}
                   >
-                    {item.label}
+                    احجز موعد
                   </Link>
-                ))}
-                <Link
-                  href="/contact"
-                  className="btn-accent mt-2 w-full"
-                  onClick={() => setOpen(false)}
-                >
-                  احجز موعد
-                </Link>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

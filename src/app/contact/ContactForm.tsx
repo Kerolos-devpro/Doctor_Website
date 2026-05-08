@@ -143,7 +143,7 @@ export function ContactForm() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <button
             type="submit"
-            className="btn-accent w-full justify-center"
+            className="btn-accent w-full justify-center transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-md active:scale-[0.99]"
             disabled={sending}
           >
             {sending ? "جاري الإرسال..." : "إرسال"}
@@ -182,14 +182,14 @@ function Field({
 
 function inputClass(hasError: boolean) {
   return [
-    "w-full rounded-2xl border bg-background px-4 py-3 text-sm text-foreground outline-none focus-visible:ring-4",
+    "w-full rounded-2xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus-visible:ring-4",
     hasError ? "border-red-300" : "border-border",
   ].join(" ");
 }
 
 function textareaClass(hasError: boolean) {
   return [
-    "w-full rounded-2xl border bg-background px-4 py-3 text-sm text-foreground outline-none focus-visible:ring-4",
+    "w-full rounded-2xl border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus-visible:ring-4",
     hasError ? "border-red-300" : "border-border",
   ].join(" ");
 }

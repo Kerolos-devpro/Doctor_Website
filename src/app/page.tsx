@@ -5,15 +5,16 @@ import {
   ServicesSection,
   TestimonialsSection,
 } from "@/components/home";
+import { FadeIn } from "@/components/animations/FadeIn";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <FadeIn className="flex flex-col" duration={0.45} y={10}>
       <HeroSection />
       <DoctorIntroSection />
       <ServicesSection />
       <TestimonialsSection />
       <CtaSection />
-    </div>
+    </FadeIn>
   );
 }

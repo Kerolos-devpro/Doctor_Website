@@ -1,3 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { SectionReveal } from "@/components/animations/SectionReveal";
+import { StaggerContainer } from "@/components/animations/StaggerContainer";
+
 type Testimonial = {
   name: string;
   rating: number;
@@ -31,22 +37,42 @@ export function TestimonialsSection() {
   return (
     <section className="section bg-surface">
       <div className="container-page">
-        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <h2 className="section-title">آراء العملاء</h2>
-            <p className="section-subtitle">
-              كلمات من المرضى عن تجربة العلاج والمتابعة.
-            </p>
+        <SectionReveal duration={0.6} y={14}>
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <h2 className="section-title">آراء العملاء</h2>
+              <p className="section-subtitle">
+                كلمات من المرضى عن تجربة العلاج والمتابعة.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-muted">
+              <Stars rating={5} />
+              <span>متوسط التقييم 4.9</span>
+            </div>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-muted">
-            <Stars rating={5} />
-            <span>متوسط التقييم 4.9</span>
-          </div>
-        </div>
+        </SectionReveal>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerContainer
+          className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          staggerChildren={0.08}
+          delayChildren={0.05}
+          duration={0.6}
+        >
           {testimonials.map((t) => (
-            <div key={t.name} className="card card-hover p-6">
+            <motion.div
+              key={t.name}
+              variants={{
+                hidden: { opacity: 0, y: 14 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.25 }}
+              className="card card-hover p-6 transition-all duration-300 ease-out hover:shadow-lg"
+            >
               <div className="flex items-center justify-between gap-3">
                 <div className="text-sm font-extrabold text-foreground">
                   {t.name}
@@ -54,9 +80,9 @@ export function TestimonialsSection() {
                 <Stars rating={t.rating} />
               </div>
               <p className="mt-4 text-sm leading-7 text-muted">{t.text}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -67,7 +93,19 @@ function Stars({ rating }: { rating: number }) {
   return (
     <span className="inline-flex items-center gap-0.5" aria-label={`تقييم ${safe} من 5`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <Star key={i} filled={i < safe} />
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0, scale: 0.9 },
+            show: {
+              opacity: 1,
+              scale: 1,
+              transition: { duration: 0.35, delay: i * 0.03, ease: "easeOut" },
+            },
+          }}
+        >
+          <Star filled={i < safe} />
+        </motion.span>
       ))}
     </span>
   );

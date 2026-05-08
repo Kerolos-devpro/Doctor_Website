@@ -1,3 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { SectionReveal } from "@/components/animations/SectionReveal";
+import { StaggerContainer } from "@/components/animations/StaggerContainer";
+
 type Service = {
   title: string;
   description: string;
@@ -48,21 +54,34 @@ export function ServicesSection() {
   return (
     <section className="section bg-surface">
       <div className="container-page">
-        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <h2 className="section-title">التخصصات والخدمات الطبية</h2>
-            <p className="section-subtitle">
-              مجموعة من الخدمات المتخصصة في جراحة العظام والمفاصل لتناسب احتياجك
-              مع تشخيص دقيق وخطة علاج واضحة.
-            </p>
+        <SectionReveal duration={0.6} y={14}>
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <h2 className="section-title">التخصصات والخدمات الطبية</h2>
+              <p className="section-subtitle">
+                مجموعة من الخدمات المتخصصة في جراحة العظام والمفاصل لتناسب احتياجك
+                مع تشخيص دقيق وخطة علاج واضحة.
+              </p>
+            </div>
           </div>
-        </div>
+        </SectionReveal>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <div key={s.title} className="card card-hover p-6">
+            <motion.div
+              key={s.title}
+              variants={{
+                hidden: { opacity: 0, y: 14 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+                },
+              }}
+              className="group card card-hover p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+            >
               <div className="flex items-start gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background text-foreground">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background text-foreground transition-all duration-300 ease-out group-hover:scale-105">
                   {s.icon}
                 </div>
                 <div className="flex-1">
@@ -82,9 +101,9 @@ export function ServicesSection() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

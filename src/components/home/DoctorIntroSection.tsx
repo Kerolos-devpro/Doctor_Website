@@ -1,69 +1,83 @@
+import { SectionReveal } from "@/components/animations/SectionReveal";
+
 export function DoctorIntroSection() {
   return (
     <section className="section">
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h2 className="section-title">تعرّف على د. زكي الحفظي</h2>
-            <p className="section-subtitle">
-              د. زكي الحفظي هو استشاري جراحة العظام والمفاصل وأورام العظام
-              والعضلات في أبها، بخبرة تمتد لأكثر من 16 عاماً في علاج آلام المفاصل
-              وجراحات استبدال الركبة والورك، مع نهج علاجي يجمع بين أحدث التقنيات
-              والأساليب التحفظية.
-            </p>
+            <SectionReveal duration={0.6} y={14}>
+              <h2 className="section-title">تعرّف على د. زكي الحفظي</h2>
+              <p className="section-subtitle">
+                د. زكي الحفظي هو استشاري جراحة العظام والمفاصل وأورام العظام
+                والعضلات في أبها، بخبرة تمتد لأكثر من 16 عاماً في علاج آلام المفاصل
+                وجراحات استبدال الركبة والورك، مع نهج علاجي يجمع بين أحدث التقنيات
+                والأساليب التحفظية.
+              </p>
+            </SectionReveal>
           </div>
 
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
-              <StatCard
-                title="سنوات الخبرة"
-                value="16+"
-                hint="خبرة طويلة في جراحة العظام والمفاصل"
-              />
-              <StatCard
-                title="استبدال المفاصل"
-                value="الركبة والورك"
-                hint="خبرة في جراحات استبدال المفاصل"
-              />
-              <StatCard
-                title="أورام العظام والعضلات"
-                value="تقييم وعلاج"
-                hint="متابعة وخطة علاج حسب كل حالة"
-              />
-              <StatCard
-                title="الموقع"
-                value="أبها"
-                hint="متابعة مهنية وتجربة حجز سهلة"
-              />
+              <SectionReveal duration={0.55} y={12} delay={0.05}>
+                <StatCard
+                  title="سنوات الخبرة"
+                  value="16+"
+                  hint="خبرة طويلة في جراحة العظام والمفاصل"
+                />
+              </SectionReveal>
+              <SectionReveal duration={0.55} y={12} delay={0.12}>
+                <StatCard
+                  title="استبدال المفاصل"
+                  value="الركبة والورك"
+                  hint="خبرة في جراحات استبدال المفاصل"
+                />
+              </SectionReveal>
+              <SectionReveal duration={0.55} y={12} delay={0.19}>
+                <StatCard
+                  title="أورام العظام والعضلات"
+                  value="تقييم وعلاج"
+                  hint="متابعة وخطة علاج حسب كل حالة"
+                />
+              </SectionReveal>
+              <SectionReveal duration={0.55} y={12} delay={0.26}>
+                <StatCard
+                  title="الموقع"
+                  value="أبها"
+                  hint="متابعة مهنية وتجربة حجز سهلة"
+                />
+              </SectionReveal>
             </div>
 
-            <div className="mt-6 card p-6">
-              <div className="text-sm font-extrabold text-foreground">
-                لماذا تختار د. زكي الحفظي؟
+            <SectionReveal duration={0.6} y={12} delay={0.12}>
+              <div className="mt-6 card p-6">
+                <div className="text-sm font-extrabold text-foreground">
+                  لماذا تختار د. زكي الحفظي؟
+                </div>
+                <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2">
+                  <li className="flex gap-2">
+                    <CheckIcon />
+                    <span>خبرة دولية في كندا وأمريكا</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckIcon />
+                    <span>استخدام أحدث التقنيات (الروبوت - التدخل المحدود)</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckIcon />
+                    <span>نتائج دقيقة ونسب نجاح عالية</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckIcon />
+                    <span>اهتمام شامل بالمريض قبل وبعد العملية</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckIcon />
+                    <span>تشخيص دقيق وخطط علاج مخصصة</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2">
-                <li className="flex gap-2">
-                  <CheckIcon />
-                  <span>خبرة دولية في كندا وأمريكا</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckIcon />
-                  <span>استخدام أحدث التقنيات (الروبوت - التدخل المحدود)</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckIcon />
-                  <span>نتائج دقيقة ونسب نجاح عالية</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckIcon />
-                  <span>اهتمام شامل بالمريض قبل وبعد العملية</span>
-                </li>
-                <li className="flex gap-2">
-                  <CheckIcon />
-                  <span>تشخيص دقيق وخطط علاج مخصصة</span>
-                </li>
-              </ul>
-            </div>
+            </SectionReveal>
           </div>
         </div>
       </div>
