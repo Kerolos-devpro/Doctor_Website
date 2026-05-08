@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --primary: #0f766e;
+  --secondary: #2563eb;
+  --accent: #f59e0b;
+
+  /* Text */
+  --foreground: #0f172a;
+  --muted: #64748b;
+
+  /* UI */
+  --border: #e2e8f0;
+  --ring: rgba(15, 118, 110, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --ring-color: var(--ring);
+  --font-sans: var(--font-site-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-site-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 18%, transparent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Layout helpers */
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-10 sm:py-14 lg:py-18;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground;
+  }
+
+  .section-subtitle {
+    @apply mt-3 text-base sm:text-lg text-muted leading-relaxed;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl bg-surface border border-border shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4 bg-primary text-white hover:brightness-110;
+    --tw-ring-color: var(--ring-color);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4 bg-secondary text-white hover:brightness-110;
+    --tw-ring-color: color-mix(in srgb, var(--secondary) 35%, transparent);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4 bg-accent text-slate-900 hover:brightness-105;
+    --tw-ring-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      focus-visible:outline-none focus-visible:ring-4 bg-transparent text-foreground border border-border hover:bg-slate-50;
+    --tw-ring-color: color-mix(in srgb, var(--primary) 22%, transparent);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold border;
+  }
+
+  .badge-primary {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold border border-transparent;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
 }
