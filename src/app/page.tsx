@@ -2,7 +2,6 @@ import {
   CtaSection,
   DoctorIntroSection,
   HeroSection,
-  PartnersSection,
   ServicesSection,
   TestimonialsSection,
 } from "@/components/home";
@@ -13,7 +12,6 @@ export default function Home() {
       <HeroSection />
       <DoctorIntroSection />
       <ServicesSection />
-      <PartnersSection />
       <TestimonialsSection />
       <CtaSection />
     </div>

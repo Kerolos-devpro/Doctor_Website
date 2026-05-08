@@ -9,7 +9,6 @@ export function Header() {
   const navItems: NavItem[] = useMemo(
     () => [
       { href: "/", label: "الرئيسية" },
-      { href: "/before-after", label: "التجارب والنتائج" },
       { href: "/cv", label: "السيرة الذاتية" },
       { href: "/blog", label: "المدونة" },
       { href: "/contact", label: "تواصل معنا" },
@@ -52,9 +51,11 @@ export function Header() {
               </span>
               <div className="leading-tight">
                 <div className="text-sm font-extrabold text-foreground">
-                  د. هبة الشريف
+                  د. زكي الحفظي
                 </div>
-                <div className="text-xs text-muted">جلدية وتجميل وليزر - حائل</div>
+                <div className="text-xs text-muted">
+                  استشاري جراحة العظام والمفاصل - أبها
+                </div>
               </div>
             </Link>
           </div>
@@ -73,7 +74,7 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <Link
-              href="/book"
+              href="/contact"
               className="btn-accent hidden sm:inline-flex"
               aria-label="احجز موعد"
             >
@@ -140,7 +141,7 @@ export function Header() {
                   </Link>
                 ))}
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="btn-accent mt-2 w-full"
                   onClick={() => setOpen(false)}
                 >

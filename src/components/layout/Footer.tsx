@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONTACT, getWhatsAppHref } from "@/lib/contact";
 
 function SocialLink({
   href,
@@ -25,6 +26,7 @@ function SocialLink({
 }
 
 export function Footer() {
+  const whatsappHref = getWhatsAppHref();
   return (
     <footer className="mt-auto border-t border-border bg-surface">
       <div className="container-page">
@@ -36,25 +38,27 @@ export function Footer() {
               </span>
               <div className="leading-tight">
                 <div className="text-base font-extrabold text-foreground">
-                  د. هبة الشريف
+                  د. زكي الحفظي
                 </div>
-                <div className="text-sm text-muted">جلدية وتجميل وليزر - حائل</div>
+                <div className="text-sm text-muted">
+                  استشاري جراحة العظام والمفاصل - أبها
+                </div>
               </div>
             </div>
             <p className="mt-4 max-w-md text-sm leading-7 text-muted">
-              د. هبة الشريف - اختصاصية جلدية وتجميل وليزر في حائل. نهدف لتقديم
-              رعاية جلدية حديثة وتجربة مريحة للحجز والتواصل.
+              استشاري معتمد في جراحة العظام والمفاصل وأورام العظام والعضلات.
+              خبرة أكثر من 16 عاماً في جراحة استبدال المفاصل والركبة والورك.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              <SocialLink href="https://www.facebook.com" label="فيسبوك">
-                <IconFacebook />
-                <span className="not-sr-only">فيسبوك</span>
-              </SocialLink>
-              <SocialLink href="https://www.instagram.com" label="إنستجرام">
+              <SocialLink href={CONTACT.social.instagram} label="إنستجرام">
                 <IconInstagram />
                 <span className="not-sr-only">إنستجرام</span>
               </SocialLink>
-              <SocialLink href="https://wa.me/0000000000" label="واتساب">
+              <SocialLink href={CONTACT.social.x} label="X">
+                <IconX />
+                <span className="not-sr-only">X</span>
+              </SocialLink>
+              <SocialLink href={whatsappHref} label="واتساب">
                 <IconWhatsapp />
                 <span className="not-sr-only">واتساب</span>
               </SocialLink>
@@ -69,14 +73,6 @@ export function Footer() {
               <li>
                 <Link className="text-muted hover:text-foreground" href="/">
                   الرئيسية
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted hover:text-foreground"
-                  href="/before-after"
-                >
-                  التجارب والنتائج
                 </Link>
               </li>
               <li>
@@ -109,23 +105,37 @@ export function Footer() {
                 <span className="mt-0.5 text-foreground">
                   <IconPhone />
                 </span>
-                <span>الهاتف: 0100 000 0000</span>
+                <span>الحجز: {CONTACT.phones[0]}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 text-foreground">
+                  <IconPhone />
+                </span>
+                <span>الهاتف: {CONTACT.phones[1]}</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-foreground">
                   <IconMail />
                 </span>
-                <span>البريد: info@doctor.example</span>
+                <span>البريد: {CONTACT.email}</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-0.5 text-foreground">
                   <IconPin />
                 </span>
-                <span>العنوان: حائل، السعودية</span>
+                <span>الموقع: {CONTACT.location}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-0.5 text-foreground">
+                  <IconClock />
+                </span>
+                <span>
+                  مواعيد العمل: {CONTACT.workingDays} — {CONTACT.workingHours}
+                </span>
               </li>
             </ul>
             <div className="mt-5">
-              <Link href="/book" className="btn-primary w-full sm:w-auto">
+              <Link href="/contact" className="btn-primary w-full sm:w-auto">
                 احجز موعد
               </Link>
             </div>
@@ -134,24 +144,11 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-border py-6 text-sm text-muted sm:flex-row">
           <div>
-            © {new Date().getFullYear()} د. هبة الشريف. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} د. زكي الحفظي. جميع الحقوق محفوظة.
           </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-function IconFacebook() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.2-1.5 1.6-1.5H16.7V5.1c-.3 0-1.4-.1-2.7-.1-2.7 0-4.5 1.6-4.5 4.6V11H7v3h2.5v8h4z" />
-    </svg>
   );
 }
 
@@ -170,6 +167,19 @@ function IconInstagram() {
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <path d="M16 11.4a4 4 0 1 1-7.9 1.2 4 4 0 0 1 7.9-1.2z" />
       <path d="M17.5 6.5h.01" />
+    </svg>
+  );
+}
+
+function IconX() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M18.244 2H21l-6.02 6.88L22 22h-6.31l-4.94-7.18L4.62 22H2l6.55-7.49L2 2h6.46l4.47 6.52L18.244 2Zm-1.11 18h1.53L7.74 3.91H6.1L17.134 20Z" />
     </svg>
   );
 }
@@ -223,6 +233,24 @@ function IconMail() {
     >
       <path d="M4 4h16v16H4z" />
       <path d="m22 6-10 7L2 6" />
+    </svg>
+  );
+}
+
+function IconClock() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10z" />
+      <path d="M12 6v6l4 2" />
     </svg>
   );
 }

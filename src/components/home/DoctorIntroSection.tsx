@@ -4,41 +4,63 @@ export function DoctorIntroSection() {
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h2 className="section-title">تعرفي على د. هبة الشريف</h2>
+            <h2 className="section-title">تعرّف على د. زكي الحفظي</h2>
             <p className="section-subtitle">
-              اختصاصية جلدية وتجميل وليزر في حائل. نهتم بالتشخيص الدقيق ووضع خطة
-              علاج مناسبة لكل حالة، مع متابعة وقياس للنتائج خطوة بخطوة.
+              د. زكي الحفظي هو استشاري جراحة العظام والمفاصل وأورام العظام
+              والعضلات في أبها، بخبرة تمتد لأكثر من 16 عاماً في علاج آلام المفاصل
+              وجراحات استبدال الركبة والورك، مع نهج علاجي يجمع بين أحدث التقنيات
+              والأساليب التحفظية.
             </p>
           </div>
 
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
-              <StatCard title="سنوات الخبرة" value="+10" hint="خبرة عملية في الجلدية والتجميل" />
-              <StatCard title="عدد الحالات" value="+2500" hint="حالات متابعة وتشخيص" />
-              <StatCard title="تقييم المرضى" value="4.9/5" hint="رضا وتجربة مميزة" />
-              <StatCard title="مواعيد مرنة" value="6 أيام" hint="جدولة مناسبة" />
+              <StatCard
+                title="سنوات الخبرة"
+                value="16+"
+                hint="خبرة طويلة في جراحة العظام والمفاصل"
+              />
+              <StatCard
+                title="استبدال المفاصل"
+                value="الركبة والورك"
+                hint="خبرة في جراحات استبدال المفاصل"
+              />
+              <StatCard
+                title="أورام العظام والعضلات"
+                value="تقييم وعلاج"
+                hint="متابعة وخطة علاج حسب كل حالة"
+              />
+              <StatCard
+                title="الموقع"
+                value="أبها"
+                hint="متابعة مهنية وتجربة حجز سهلة"
+              />
             </div>
 
             <div className="mt-6 card p-6">
               <div className="text-sm font-extrabold text-foreground">
-                لماذا يختارنا المرضى؟
+                لماذا تختار د. زكي الحفظي؟
               </div>
               <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-2">
                 <li className="flex gap-2">
                   <CheckIcon />
-                  <span>تواصل واضح وخطة علاج مفهومة</span>
+                  <span>خبرة دولية في كندا وأمريكا</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckIcon />
-                  <span>متابعة دقيقة وتحسينات ملموسة</span>
+                  <span>استخدام أحدث التقنيات (الروبوت - التدخل المحدود)</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckIcon />
-                  <span>إجراءات تجميلية ببروتوكولات آمنة</span>
+                  <span>نتائج دقيقة ونسب نجاح عالية</span>
                 </li>
                 <li className="flex gap-2">
                   <CheckIcon />
-                  <span>تجربة حجز سهلة وسريعة</span>
+                  <span>اهتمام شامل بالمريض قبل وبعد العملية</span>
+                </li>
+                <li className="flex gap-2">
+                  <CheckIcon />
+                  <span>تشخيص دقيق وخطط علاج مخصصة</span>
                 </li>
               </ul>
             </div>

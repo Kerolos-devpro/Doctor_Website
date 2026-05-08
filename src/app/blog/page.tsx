@@ -19,8 +19,8 @@ export default function BlogPage() {
       <div className="container-page">
         <h1 className="section-title">المدونة الطبية</h1>
         <p className="section-subtitle">
-          مقالات ونصائح صحية موثوقة (Placeholder) تساعدك على فهم أساسيات العناية
-          بالبشرة واتخاذ قرارات أفضل.
+          مقالات ونصائح صحية موثوقة تساعدك على فهم أساسيات العناية بصحة العظام
+          والمفاصل واتخاذ قرارات أفضل.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-12 lg:items-start">
@@ -35,7 +35,6 @@ export default function BlogPage() {
                       width={1200}
                       height={750}
                       className="h-full w-full object-cover"
-                      unoptimized
                     />
                     <div className="absolute left-3 top-3">
                       <span className="badge-primary">{post.category}</span>

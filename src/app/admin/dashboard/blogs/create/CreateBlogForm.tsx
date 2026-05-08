@@ -32,6 +32,8 @@ export function CreateBlogForm() {
   const [success, setSuccess] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  // NOTE: This form is intentionally client-side and demo-only.
+  // It calls `createBlogPost` which logs to console (no persistence).
   const imageUrl = useMemo(() => {
     const v = data.image.trim();
     if (!v) return null;

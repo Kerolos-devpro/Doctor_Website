@@ -7,6 +7,7 @@ import type { BlogPost } from "@/lib/blogs";
 export function BlogsTable({ posts }: { posts: BlogPost[] }) {
   return (
     <div className="grid gap-4">
+      {/* NOTE: Demo-only actions. Delete is a placeholder until DB wiring. */}
       {/* Mobile: cards */}
       <div className="grid gap-4 md:hidden">
         {posts.map((p) => (
@@ -48,7 +49,7 @@ export function BlogsTable({ posts }: { posts: BlogPost[] }) {
                 <button
                   type="button"
                   className="btn-accent justify-center"
-                  onClick={() => alert("حذف (Placeholder) — سيتم ربطه لاحقًا")}
+                  onClick={() => alert("حذف (تجريبي) — سيتم ربطه لاحقًا")}
                 >
                   حذف
                 </button>
@@ -114,7 +115,7 @@ export function BlogsTable({ posts }: { posts: BlogPost[] }) {
                   <button
                     type="button"
                     className="rounded-xl border border-border bg-background px-3 py-2 text-xs font-extrabold text-foreground transition hover:bg-slate-50"
-                    onClick={() => alert("حذف (Placeholder) — سيتم ربطه لاحقًا")}
+                    onClick={() => alert("حذف (تجريبي) — سيتم ربطه لاحقًا")}
                   >
                     حذف
                   </button>

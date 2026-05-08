@@ -6,8 +6,7 @@ export default function BookPage() {
       <div className="container-page">
         <h1 className="section-title">حجز موعد</h1>
         <p className="section-subtitle">
-          صفحة حجز الموعد (Placeholder). سيتم ربط نموذج الحجز لاحقًا بدون Backend
-          في هذه المرحلة.
+          للحجز والاستفسار، تفضل بالتواصل معنا وسنساعدك في تحديد الموعد المناسب.
         </p>
 
         <div className="mt-8 card p-6">
@@ -18,8 +17,8 @@ export default function BookPage() {
             <Link href="/contact" className="btn-primary justify-center">
               تواصل معنا
             </Link>
-            <Link href="/before-after" className="btn-ghost justify-center">
-              مشاهدة قبل/بعد
+            <Link href="/blog" className="btn-ghost justify-center">
+              قراءة مقالات طبية
             </Link>
           </div>
         </div>

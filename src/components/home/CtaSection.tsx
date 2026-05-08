@@ -23,7 +23,7 @@ export function CtaSection() {
             </div>
             <div className="lg:col-span-4">
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Link href="/book" className="btn-accent w-full justify-center">
+                <Link href="/contact" className="btn-accent w-full justify-center">
                   احجز موعد
                 </Link>
                 <Link

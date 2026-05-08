@@ -41,7 +41,6 @@ export default async function BlogPostPage({
                   width={1200}
                   height={675}
                   className="h-full w-full object-cover"
-                  unoptimized
                 />
                 <div className="absolute left-4 top-4">
                   <span className="badge-primary">{post.category}</span>
@@ -99,7 +98,6 @@ export default async function BlogPostPage({
                           width={1200}
                           height={750}
                           className="h-full w-full object-cover"
-                          unoptimized
                         />
                         <div className="absolute left-3 top-3">
                           <span className="badge-primary">{p.category}</span>
@@ -136,7 +134,7 @@ export default async function BlogPostPage({
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link href="/book" className="btn-accent justify-center">
+                  <Link href="/contact" className="btn-accent justify-center">
                     احجز استشارة الآن
                   </Link>
                   <Link href="/blog" className="btn-ghost justify-center">
@@ -153,8 +151,7 @@ export default async function BlogPostPage({
                 تنبيه مهم
               </div>
               <p className="mt-3 text-sm leading-7 text-muted">
-                المحتوى الحالي Placeholder للتصميم فقط. لا يغني عن الاستشارة
-                الطبية المباشرة.
+                المحتوى للتثقيف العام ولا يغني عن الاستشارة الطبية المباشرة.
               </p>
               <div className="mt-5">
                 <Link href="/contact" className="btn-primary w-full justify-center">

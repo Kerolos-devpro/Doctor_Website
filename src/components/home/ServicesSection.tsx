@@ -1,39 +1,46 @@
 type Service = {
   title: string;
   description: string;
+  points: string[];
   icon: React.ReactNode;
 };
 
 export function ServicesSection() {
   const services: Service[] = [
     {
-      title: "الكشف والتشخيص",
-      description: "فحص شامل وتحديد السبب مع خطة علاج واضحة.",
+      title: "مناظير المفاصل",
+      description: "تشخيص وعلاج إصابات المفاصل بتقنيات دقيقة.",
+      points: ["منظار الركبة", "منظار الكتف", "إصابات الأربطة والغضاريف"],
       icon: <IconStethoscope />,
     },
     {
-      title: "المتابعة الطبية",
-      description: "متابعة مستمرة وتعديل الخطة حسب الاستجابة.",
+      title: "جراحة استبدال المفاصل",
+      description: "خبرة في استبدال مفصل الركبة والورك مع متابعة ما بعد الجراحة.",
+      points: ["استبدال الركبة", "استبدال الورك", "تأهيل ومتابعة بعد العملية"],
       icon: <IconChart />,
     },
     {
-      title: "الاستشارات الطبية",
-      description: "إجابات دقيقة ونصائح موثوقة لحالتك.",
+      title: "جراحة العظام والمفاصل",
+      description: "تقييم شامل وخطة علاج مناسبة لكل حالة.",
+      points: ["آلام المفاصل", "خشونة الركبة والورك", "التهابات وإصابات المفصل"],
       icon: <IconChat />,
     },
     {
-      title: "خطط العلاج",
-      description: "خطة مخصصة تجمع بين الفعالية والأمان.",
+      title: "العمود الفقري والانزلاق الغضروفي",
+      description: "تقييم وعلاج آلام الظهر والرقبة حسب التشخيص.",
+      points: ["آلام الظهر", "انزلاق غضروفي", "خطة علاج وتأهيل"],
       icon: <IconPlan />,
     },
     {
-      title: "الفحوصات",
-      description: "توجيه للفحوصات اللازمة وقراءة النتائج.",
+      title: "أورام العظام والعضلات",
+      description: "تقييم وتشخيص وخطة علاج وفق أحدث الممارسات.",
+      points: ["تقييم أولي", "قراءة الفحوصات", "تحويل/خطة علاج حسب الحالة"],
       icon: <IconLab />,
     },
     {
-      title: "الرعاية المستمرة",
-      description: "عناية طويلة المدى للحفاظ على النتائج.",
+      title: "الكسور وإصابات الملاعب",
+      description: "تشخيص وعلاج الإصابات والكسور مع متابعة للتعافي.",
+      points: ["كسور بسيطة ومعقدة", "إصابات الملاعب", "متابعة حتى التعافي"],
       icon: <IconHeart />,
     },
   ];
@@ -43,10 +50,10 @@ export function ServicesSection() {
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <h2 className="section-title">خدمات العيادة</h2>
+            <h2 className="section-title">التخصصات والخدمات الطبية</h2>
             <p className="section-subtitle">
-              مجموعة خدمات طبية مصممة لتناسب احتياجك مع تجربة مريحة ونتائج قابلة
-              للقياس.
+              مجموعة من الخدمات المتخصصة في جراحة العظام والمفاصل لتناسب احتياجك
+              مع تشخيص دقيق وخطة علاج واضحة.
             </p>
           </div>
         </div>
@@ -65,6 +72,14 @@ export function ServicesSection() {
                   <p className="mt-2 text-sm leading-7 text-muted">
                     {s.description}
                   </p>
+                  <ul className="mt-4 grid gap-2 text-sm text-muted">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex gap-2">
+                        <CheckBullet />
+                        <span className="leading-7">{p}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -72,6 +87,30 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CheckBullet() {
+  return (
+    <span
+      className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full"
+      style={{
+        backgroundColor: "color-mix(in srgb, var(--primary) 12%, transparent)",
+      }}
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="h-4 w-4"
+        fill="none"
+        stroke="var(--primary)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M20 6 9 17l-5-5" />
+      </svg>
+    </span>
   );
 }
 

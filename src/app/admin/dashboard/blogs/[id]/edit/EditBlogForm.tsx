@@ -31,6 +31,8 @@ export function EditBlogForm({ post }: { post: BlogPost }) {
   const [success, setSuccess] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
+  // NOTE: Demo-only edit UI.
+  // `updateBlogPost` logs payload to console (no persistence).
   const imageUrl = useMemo(() => {
     const v = data.image.trim();
     if (!v) return null;

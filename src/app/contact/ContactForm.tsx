@@ -24,22 +24,6 @@ export function ContactForm() {
   const [success, setSuccess] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
 
-  const mailtoHref = useMemo(() => {
-    const subject = `طلب تواصل - ${data.name || "بدون اسم"}`;
-    const body = [
-      `الاسم: ${data.name}`,
-      `الهاتف: ${data.phone}`,
-      `البريد: ${data.email}`,
-      "",
-      "الرسالة:",
-      data.message,
-    ].join("\n");
-
-    return `mailto:info@doctor.example?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-  }, [data]);
-
   function validate(next: FormState) {
     const e: FormErrors = {};
     if (!next.name.trim()) e.name = "الاسم مطلوب";
@@ -80,8 +64,7 @@ export function ContactForm() {
     <div className="card p-6">
       <div className="text-sm font-extrabold text-foreground">أرسل رسالة</div>
       <p className="mt-2 text-sm leading-7 text-muted">
-        نموذج تواصل تجريبي بدون Backend. يمكنك أيضًا استخدام زر البريد لإرسال
-        التفاصيل عبر تطبيق البريد.
+        املأ البيانات التالية وسنقوم بالتواصل معك في أقرب وقت.
       </p>
 
       {success ? (
@@ -165,9 +148,6 @@ export function ContactForm() {
           >
             {sending ? "جاري الإرسال..." : "إرسال"}
           </button>
-          <a href={mailtoHref} className="btn-ghost w-full justify-center">
-            إرسال عبر البريد
-          </a>
         </div>
       </form>
     </div>

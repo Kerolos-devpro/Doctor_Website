@@ -13,6 +13,7 @@ export default function AdminLoginPage() {
   ): Promise<ActionState> {
     "use server";
 
+    // Demo-only: simple cookie flag. Replace with real auth/session later.
     const email = String(formData.get("email") ?? "").trim().toLowerCase();
     const password = String(formData.get("password") ?? "");
 

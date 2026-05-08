@@ -1,6 +1,7 @@
+import { getWhatsAppHref } from "@/lib/contact";
+
 export function FloatingWhatsApp() {
-  const phone = "0000000000";
-  const href = `https://wa.me/${phone}`;
+  const href = getWhatsAppHref();
 
   return (
     <a

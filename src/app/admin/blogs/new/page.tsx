@@ -19,7 +19,7 @@ export default async function AdminNewBlogPage() {
   return (
     <AdminShell
       title="إضافة مقال"
-      subtitle="صفحة تجريبية (Placeholder) — سيتم إضافة نموذج إنشاء مقال لاحقًا."
+      subtitle="صفحة تجريبية — سيتم إضافة نموذج إنشاء مقال لاحقًا."
       adminName={ADMIN_SEED.name}
       logoutAction={logoutAction}
       headerAction={
@@ -32,17 +32,17 @@ export default async function AdminNewBlogPage() {
         <div className="card p-6 lg:col-span-7">
           <div className="text-sm font-extrabold text-foreground">نموذج المقال</div>
           <p className="mt-2 text-sm leading-7 text-muted">
-            سيتم بناء نموذج (Title/Slug/Category/Content/Published) لاحقًا بدون قاعدة بيانات في هذه المرحلة.
+            سيتم بناء نموذج (Title/Slug/Category/Content/Published) لاحقًا.
           </p>
           <div className="mt-5 grid gap-3">
             <div className="rounded-2xl border border-border bg-background px-4 py-3 text-sm text-muted">
-              حقول النموذج (Placeholder)
+              حقول النموذج (تجريبي)
             </div>
             <div className="rounded-2xl border border-border bg-background px-4 py-3 text-sm text-muted">
-              رفع صورة/رابط صورة (Placeholder)
+              رفع صورة/رابط صورة (تجريبي)
             </div>
             <div className="rounded-2xl border border-border bg-background px-4 py-3 text-sm text-muted">
-              زر حفظ/نشر (Placeholder)
+              زر حفظ/نشر (تجريبي)
             </div>
           </div>
         </div>

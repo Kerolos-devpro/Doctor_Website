@@ -7,8 +7,9 @@ export type CreateBlogPostInput = Pick<
 
 /**
  * IMPORTANT:
- * Demo-only helper. No database. No persistence.
- * Replace this with a real DB implementation later.
+ * Demo-only helper for the admin UI.
+ * No database, no persistence: it only logs payloads to the console.
+ * Replace with real DB calls (create/update/delete) when backend is added.
  */
 export async function createBlogPost(input: CreateBlogPostInput) {
   const payload = {
@@ -27,8 +28,9 @@ export type UpdateBlogPostInput = CreateBlogPostInput & { id: string };
 
 /**
  * IMPORTANT:
- * Demo-only helper. No database. No persistence.
- * Replace this with a real DB implementation later.
+ * Demo-only helper for the admin UI.
+ * No database, no persistence: it only logs payloads to the console.
+ * Replace with real DB calls (create/update/delete) when backend is added.
  */
 export async function updateBlogPost(input: UpdateBlogPostInput) {
   const payload = {

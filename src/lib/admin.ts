@@ -7,7 +7,8 @@ export type AdminSeed = {
 /**
  * IMPORTANT:
  * Demo-only auth seed for local/testing.
- * Not production-ready (no hashing, no sessions, no rate limiting).
+ * Not production-ready: plain password, no hashing, no sessions, no rate limiting.
+ * Replace with real auth when a backend is introduced.
  */
 export const ADMIN_SEED: AdminSeed = {
   email: "admin@doctor.com",

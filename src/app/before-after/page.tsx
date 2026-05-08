@@ -1,4 +1,22 @@
 import Link from "next/link";
+import { getWhatsAppHref } from "@/lib/contact";
+import { notFound } from "next/navigation";
+
+/**
+ * NOTE:
+ * صفحة "قبل/بعد" هنا هدفها عرض شكل الـ UI وتجربة التصفح فقط.
+ * يمكن لاحقًا استبدال الصور التوضيحية بصور حقيقية بإذن المريض وسياسة خصوصية واضحة،
+ * أو ربطها بقاعدة بيانات/لوحة تحكم لإدارة الحالات.
+ */
+
+/**
+ * DISABLED (for now):
+ * بناءً على الطلب الحالي، تم إخفاء الصفحة بالكامل من العرض العام.
+ * نُبقي الملف والكود كما هو لاحتمال الحاجة إليه لاحقًا، لكن المسار يعرض 404.
+ */
+export default function BeforeAfterPageDisabled() {
+  notFound();
+}
 
 type CaseItem = {
   title: string;
@@ -8,68 +26,39 @@ type CaseItem = {
 
 const cases: CaseItem[] = [
   {
-    title: "حالة 01 - تحسن نضارة البشرة",
-    description: "مثال توضيحي لنتائج روتين علاجي متدرج.",
-    note: "النتائج تختلف حسب الحالة والالتزام بالخطة.",
+    title: "حالة 01 - خشونة الركبة وتحسن الحركة",
+    description: "مثال توضيحي لتحسن القدرة على المشي وتقليل الألم بعد خطة علاج وتأهيل مناسبة.",
+    note: "تحديد الخطة يعتمد على الفحص السريري والأشعة ودرجة الخشونة.",
   },
   {
-    title: "حالة 02 - توحيد لون البشرة",
-    description: "مثال توضيحي لتحسن المظهر العام للبشرة.",
-    note: "قد تتطلب بعض الحالات جلسات متابعة إضافية.",
+    title: "حالة 02 - استبدال مفصل الورك والعودة للنشاط",
+    description: "مثال توضيحي للتحسن بعد التدخل الجراحي مع برنامج تأهيل تدريجي وآمن.",
+    note: "العودة للنشاط تتم وفق تقييم الطبيب وخطة العلاج الطبيعي والمتابعة.",
   },
   {
-    title: "حالة 03 - عناية تجميلية",
-    description: "مثال توضيحي لتحسين الملمس ضمن خطة آمنة.",
-    note: "التقييم المباشر ضروري لتحديد الإجراء المناسب.",
+    title: "حالة 03 - إصابات الملاعب (قطع الرباط الصليبي)",
+    description: "مثال توضيحي لتحسن الثبات وتقليل التورم بعد العلاج/التأهيل وربط الخطة بالنشاط الرياضي.",
+    note: "القرار بين العلاج التحفظي أو الجراحي يعتمد على درجة الإصابة وأهداف المريض.",
   },
   {
-    title: "حالة 04 - روتين علاجي",
-    description: "مثال توضيحي لخطوات عناية مستمرة.",
-    note: "نلتزم ببروتوكولات آمنة وملائمة لكل حالة.",
+    title: "حالة 04 - آلام الكتف وتمزق الكُفّة المدورة",
+    description: "مثال توضيحي لتحسن مدى الحركة والقدرة على رفع الذراع بعد علاج مخصص.",
+    note: "قد تُستخدم الأشعة/الرنين لتحديد درجة التمزق واختيار الأنسب للحالة.",
   },
   {
-    title: "حالة 05 - تحسن تدريجي",
-    description: "مثال توضيحي لنتائج على مراحل مع المتابعة.",
-    note: "قد تظهر النتائج على فترات متفاوتة بين الأشخاص.",
+    title: "حالة 05 - انزلاق غضروفي وتحسن الألم العصبي",
+    description: "مثال توضيحي لخفض الألم الممتد وتحسن الوظيفة اليومية عبر علاج تحفظي وخطة تمارين.",
+    note: "التقييم يحدد الحاجة للتصوير وخيارات العلاج بما يناسب الأعراض.",
   },
   {
-    title: "حالة 06 - عناية وليزر (توضيحي)",
-    description: "مثال توضيحي لإجراءات عناية حديثة.",
-    note: "لا يوجد ضمان لنتيجة معينة؛ التقييم يحدد التوقعات.",
-  },
-  {
-    title: "حالة 07 - عناية بالبشرة",
-    description: "مثال توضيحي لخطة عناية مناسبة لنوع البشرة.",
-    note: "الالتزام بالتعليمات جزء أساسي من النتائج.",
-  },
-  {
-    title: "حالة 08 - متابعة وتحسن",
-    description: "مثال توضيحي لتحسن تدريجي مع المتابعة.",
-    note: "قد تختلف مدة الوصول للنتيجة من شخص لآخر.",
-  },
-  {
-    title: "حالة 09 - توضيح قبل/بعد",
-    description: "مثال توضيحي لطريقة العرض قبل وبعد.",
-    note: "التقييم المباشر يحدد الخطة المناسبة.",
-  },
-  {
-    title: "حالة 10 - جلسات تجميلية",
-    description: "مثال توضيحي لنتائج جلسات ضمن خطة آمنة.",
-    note: "يتم اختيار الإجراء بناءً على نوع البشرة والحالة.",
-  },
-  {
-    title: "حالة 11 - عناية مستمرة",
-    description: "مثال توضيحي لعناية طويلة المدى.",
-    note: "العناية اليومية تعزز ثبات النتائج.",
-  },
-  {
-    title: "حالة 12 - نتائج توضيحية",
-    description: "مثال توضيحي لعرض نتائج مختلفة.",
-    note: "كل حالة لها استجابة مختلفة وفق عوامل متعددة.",
+    title: "حالة 06 - أورام العظام والعضلات (تقييم ومتابعة)",
+    description: "مثال توضيحي لمسار تقييم كتلة/ألم مستمر وخطة متابعة وفحوصات متخصصة عند الحاجة.",
+    note: "التشخيص يتطلب فحصًا وتصويرًا وربما خزعة وفق ما يراه الطبيب.",
   },
 ];
 
-export default function BeforeAfterPage() {
+function BeforeAfterPage() {
+  const whatsappHref = getWhatsAppHref();
   return (
     <div className="flex flex-col">
       <section className="section">
@@ -85,7 +74,7 @@ export default function BeforeAfterPage() {
                 لشرح طريقة العرض قبل/بعد، وليست حالات حقيقية أو بيانات لمرضى.
               </p>
             </div>
-            <span className="badge-primary">Before / After</span>
+            <span className="badge-primary">قبل / بعد</span>
           </div>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,7 +114,7 @@ export default function BeforeAfterPage() {
                       للتواصل السريع
                     </div>
                     <a
-                      href="https://wa.me/0000000000"
+                      href={whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-extrabold text-white shadow-sm transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-4"
@@ -158,7 +147,7 @@ export default function BeforeAfterPage() {
             <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
                 <h3 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
-                  احجزي استشارة لتقييم حالتك
+                  احجز استشارة لتقييم حالتك
                 </h3>
                 <p className="mt-3 text-base leading-8 text-muted sm:text-lg">
                   سنراجع حالتك ونحدّد الخطة المناسبة بخطوات واضحة وتوقعات واقعية.
@@ -212,6 +201,9 @@ function BeforeAfterImage({
   label: "قبل" | "بعد";
   tone: "before" | "after";
 }) {
+  const svg = getIllustrationSvg({ label, tone });
+  const dataUri = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+
   const badgeStyle =
     tone === "before"
       ? {
@@ -225,25 +217,12 @@ function BeforeAfterImage({
 
   return (
     <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
-      <div
-        className="absolute inset-0 grid place-items-center"
-        style={{
-          background:
-            tone === "before"
-              ? "linear-gradient(135deg, rgba(100,116,139,0.18) 0%, rgba(248,250,252,1) 60%)"
-              : "linear-gradient(135deg, rgba(15,118,110,0.16) 0%, rgba(248,250,252,1) 60%)",
-        }}
-        aria-label={alt}
-      >
-        <div className="text-center">
-          <div className="text-4xl font-extrabold tracking-tight text-slate-400">
-            {label}
-          </div>
-          <div className="mt-2 text-xs font-semibold text-muted">
-            Placeholder
-          </div>
-        </div>
-      </div>
+      <img
+        src={dataUri}
+        alt={alt}
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+      />
 
       <div className="absolute inset-0">
         <div className="absolute inset-y-0 left-0 w-px bg-border" aria-hidden="true" />
@@ -256,5 +235,55 @@ function BeforeAfterImage({
       </div>
     </div>
   );
+}
+
+function getIllustrationSvg({
+  label,
+  tone,
+}: {
+  label: "قبل" | "بعد";
+  tone: "before" | "after";
+}) {
+  const isAfter = tone === "after";
+  const a = isAfter ? "#0F766E" : "#64748B";
+  const b = isAfter ? "#2563EB" : "#94A3B8";
+  const bg1 = isAfter ? "rgba(15,118,110,0.18)" : "rgba(100,116,139,0.18)";
+  const bg2 = isAfter ? "rgba(37,99,235,0.10)" : "rgba(148,163,184,0.10)";
+
+  // Note: keep SVG as plain UTF-8; it's encoded into a data URI above.
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="${label}">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${bg1}"/>
+      <stop offset="0.6" stop-color="rgba(248,250,252,1)"/>
+      <stop offset="1" stop-color="${bg2}"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="${a}"/>
+      <stop offset="1" stop-color="${b}"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="1000" fill="url(#g)"/>
+  <circle cx="610" cy="180" r="110" fill="url(#accent)" opacity="0.12"/>
+  <circle cx="160" cy="820" r="140" fill="url(#accent)" opacity="0.10"/>
+
+  <g transform="translate(0,0)">
+    <path d="M140 370c70-80 150-120 260-120s190 40 260 120" fill="none" stroke="url(#accent)" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+    <path d="M220 520c40-30 95-45 180-45s140 15 180 45" fill="none" stroke="url(#accent)" stroke-width="14" stroke-linecap="round" opacity="0.35"/>
+  </g>
+
+  <g transform="translate(80,130)" opacity="0.9">
+    <rect x="0" y="0" width="250" height="72" rx="36" fill="rgba(255,255,255,0.72)"/>
+    <rect x="0" y="0" width="250" height="72" rx="36" fill="none" stroke="rgba(226,232,240,1)"/>
+    <text x="125" y="48" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Arial" font-size="28" font-weight="800" fill="${isAfter ? "#0F766E" : "#334155"}">${label}</text>
+  </g>
+
+  <g transform="translate(120,620)" opacity="0.95">
+    <text x="0" y="0" font-family="system-ui, -apple-system, Segoe UI, Arial" font-size="22" font-weight="700" fill="rgba(71,85,105,1)">مثال توضيحي</text>
+    <text x="0" y="44" font-family="system-ui, -apple-system, Segoe UI, Arial" font-size="18" font-weight="600" fill="rgba(100,116,139,1)">للتمثيل البصري قبل/بعد</text>
+  </g>
+</svg>`;
 }
 

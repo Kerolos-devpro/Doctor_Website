@@ -13,7 +13,7 @@ export function HeroSection() {
                 style={{ backgroundColor: "var(--primary)" }}
                 aria-hidden="true"
               />
-              <span>جلدية وتجميل وليزر - حائل</span>
+              <span>استشاري جراحة العظام والمفاصل وأورام العظام والعضلات</span>
             </div>
 
             <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
@@ -21,12 +21,13 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              د. هبة الشريف - اختصاصية جلدية وتجميل وليزر. نوفّر خطة علاج
-              واضحة، متابعة دقيقة، وتجربة حجز سهلة تناسب جميع الأجهزة.
+              استشاري معتمد — د. زكي الحفظي (Dr. Zaki Al-Hafzi). خبرة أكثر من 16
+              عاماً في جراحة استبدال المفاصل والركبة والورك وأورام العظام
+              والعضلات، مع اهتمام بالتشخيص الدقيق وخطة علاج واضحة.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link href="/book" className="btn-accent">
+              <Link href="/contact" className="btn-accent">
                 احجز موعد
               </Link>
               <Link href="/cv" className="btn-ghost">
@@ -37,26 +38,26 @@ export function HeroSection() {
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               <div className="card px-4 py-4">
                 <div className="text-sm font-extrabold text-foreground">
-                  استشارة أولية
+                  تشخيص دقيق
                 </div>
                 <div className="mt-1 text-sm text-muted">
-                  تشخيص وتوجيه علاجي واضح
+                  تقييم شامل وخطة علاج واضحة
                 </div>
               </div>
               <div className="card px-4 py-4">
                 <div className="text-sm font-extrabold text-foreground">
-                  متابعة دورية
+                  جراحة مفاصل
                 </div>
                 <div className="mt-1 text-sm text-muted">
-                  خطّة علاج وتقييم للنتائج
+                  استبدال الركبة والورك والمفاصل
                 </div>
               </div>
               <div className="card px-4 py-4">
                 <div className="text-sm font-extrabold text-foreground">
-                  عناية تجميلية
+                  أورام العظام
                 </div>
                 <div className="mt-1 text-sm text-muted">
-                  بروتوكولات آمنة وحديثة
+                  تقييم وعلاج أورام العظام والعضلات
                 </div>
               </div>
             </div>
@@ -76,25 +77,24 @@ export function HeroSection() {
               <div className="relative p-4 sm:p-6">
                 <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100">
                   <Image
-                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80"
-                    alt="صورة لطبيبة"
+                    src="/images/doctor.png"
+                    alt="صورة الدكتور زكي الحفظي"
                     width={900}
                     height={1125}
                     className="h-full w-full object-cover"
                     priority
-                    unoptimized
                   />
                 </div>
                 <div className="mt-4 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background px-4 py-3">
                   <div>
                     <div className="text-sm font-extrabold text-foreground">
-                      د. هبة الشريف
+                      د. زكي الحفظي
                     </div>
                     <div className="text-sm text-muted">
-                      جلدية • تجميل • ليزر
+                      عظام • مفاصل • أورام العظام
                     </div>
                   </div>
-                  <span className="badge-primary">حائل</span>
+                  <span className="badge-primary">أبها</span>
                 </div>
               </div>
             </div>
