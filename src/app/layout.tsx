@@ -74,8 +74,9 @@ export default function RootLayout({
       lang="ar"
       dir="rtl"
       className={`${siteFont.variable} h-full antialiased bg-background text-foreground`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

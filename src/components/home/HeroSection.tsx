@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { HeroImageOnce } from "@/components/home/HeroImageOnce";
 
 export function HeroSection() {
   return (
@@ -93,29 +93,9 @@ export function HeroSection() {
                 />
               </div>
               <div className="relative p-4 sm:p-6">
-                <FadeIn
+                <HeroImageOnce
                   className="aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
-                  duration={0.6}
-                  delay={0.05}
-                  y={10}
-                  initial={{ opacity: 0, y: 10, scale: 0.985 }}
-                  animate={{ opacity: 1, y: [0, -4, 0], scale: 1 }}
-                  transition={{
-                    duration: 6,
-                    delay: 0.25,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <Image
-                    src="/images/doctor.png"
-                    alt="صورة الدكتور زكي الحفظي"
-                    width={900}
-                    height={1125}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </FadeIn>
+                />
                 <div className="mt-4 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background px-4 py-3">
                   <div>
                     <div className="text-sm font-extrabold text-foreground">

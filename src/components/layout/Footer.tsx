@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT, getWhatsAppHref } from "@/lib/contact";
 
 function SocialLink({
@@ -33,8 +34,14 @@ export function Footer() {
         <div className="grid gap-10 py-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-primary text-white shadow-sm">
-                <span className="text-base font-extrabold leading-none">د</span>
+              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-2xl bg-primary text-white shadow-sm">
+                <Image
+                  src="/images/doctor.png"
+                  alt="شعار د. زكي الحفظي"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 object-cover"
+                />
               </span>
               <div className="leading-tight">
                 <div className="text-base font-extrabold text-foreground">

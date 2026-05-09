@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -47,8 +48,15 @@ export function Header() {
               style={{ ["--tw-ring-color" as never]: "var(--ring-color)" }}
               aria-label="العودة إلى الصفحة الرئيسية"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-2xl bg-primary text-white shadow-sm">
-                <span className="text-base font-extrabold leading-none">د</span>
+              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-2xl bg-primary text-white shadow-sm">
+                <Image
+                  src="/images/doctor.png"
+                  alt="شعار د. زكي الحفظي"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 object-cover"
+                  priority
+                />
               </span>
               <div className="leading-tight">
                 <div className="text-sm font-extrabold text-foreground">
