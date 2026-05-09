@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type MotionProps } from "framer-motion";
+import { motion, type MotionProps, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type StaggerContainerProps = {
@@ -23,6 +23,12 @@ export function StaggerContainer({
   duration = 0.5,
   ...motionProps
 }: StaggerContainerProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}

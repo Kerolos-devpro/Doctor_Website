@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type MotionProps } from "framer-motion";
+import { motion, type MotionProps, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type FadeInProps = {
@@ -23,6 +23,12 @@ export function FadeIn({
   y = 12,
   ...motionProps
 }: FadeInProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}

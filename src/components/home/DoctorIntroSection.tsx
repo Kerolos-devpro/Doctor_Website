@@ -95,7 +95,7 @@ function StatCard({
   hint: string;
 }) {
   return (
-    <div className="card card-hover p-5">
+    <div className="card card-hover p-5 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl active:-translate-y-2 active:scale-[1.03] active:shadow-xl">
       <div className="text-sm font-semibold text-muted">{title}</div>
       <div className="mt-2 text-2xl font-extrabold tracking-tight text-foreground">
         {value}

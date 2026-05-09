@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { SectionReveal } from "@/components/animations/SectionReveal";
 import { StaggerContainer } from "@/components/animations/StaggerContainer";
 
@@ -11,6 +11,7 @@ type Testimonial = {
 };
 
 export function TestimonialsSection() {
+  const reduceMotion = useReducedMotion();
   const testimonials: Testimonial[] = [
     {
       name: "محمد - أبها",
@@ -69,8 +70,8 @@ export function TestimonialsSection() {
                   transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.25 }}
+              whileHover={reduceMotion ? undefined : { y: -4 }}
+              transition={reduceMotion ? undefined : { duration: 0.25 }}
               className="card card-hover p-6 transition-all duration-300 ease-out hover:shadow-lg"
             >
               <div className="flex items-center justify-between gap-3">

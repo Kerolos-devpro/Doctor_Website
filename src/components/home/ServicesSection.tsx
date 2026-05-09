@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { SectionReveal } from "@/components/animations/SectionReveal";
 import { StaggerContainer } from "@/components/animations/StaggerContainer";
 
@@ -12,6 +12,7 @@ type Service = {
 };
 
 export function ServicesSection() {
+  const reduceMotion = useReducedMotion();
   const services: Service[] = [
     {
       title: "مناظير المفاصل",
@@ -78,13 +79,42 @@ export function ServicesSection() {
                   transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              className="group card card-hover p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+              whileTap={
+                reduceMotion
+                  ? undefined
+                  : {
+                      scale: 0.98,
+                      rotate: -0.4,
+                    }
+              }
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : {
+                      y: -6,
+                      scale: 1.01,
+                    }
+              }
+              transition={reduceMotion ? undefined : { duration: 0.22, ease: "easeOut" }}
+              className="group card card-hover relative p-6 transition-all duration-300 ease-out hover:shadow-lg active:shadow-lg"
             >
+              <div
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100 active:opacity-100"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(15,118,110,0.10) 0%, rgba(37,99,235,0.08) 55%, rgba(245,158,11,0.08) 100%)",
+                }}
+              />
               <div className="flex items-start gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background text-foreground transition-all duration-300 ease-out group-hover:scale-105">
+                <motion.div
+                  className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl border border-border bg-background text-foreground transition-all duration-300 ease-out"
+                  whileHover={reduceMotion ? undefined : { rotate: -3, scale: 1.06 }}
+                  whileTap={reduceMotion ? undefined : { rotate: -6, scale: 1.02 }}
+                  transition={reduceMotion ? undefined : { duration: 0.22, ease: "easeOut" }}
+                >
                   {s.icon}
-                </div>
-                <div className="flex-1">
+                </motion.div>
+                <div className="relative z-10 flex-1">
                   <div className="text-base font-extrabold text-foreground">
                     {s.title}
                   </div>

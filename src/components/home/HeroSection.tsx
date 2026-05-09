@@ -4,8 +4,9 @@ import { HeroImageOnce } from "@/components/home/HeroImageOnce";
 
 export function HeroSection() {
   return (
-    <section className="section">
+    <section className="section relative overflow-hidden">
       <div className="container-page">
+        <div className="pointer-events-none absolute inset-x-0 -top-24 mx-auto h-72 w-[42rem] max-w-[92vw] rounded-full bg-accent/15 blur-3xl fx-glow" />
         <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <FadeIn duration={0.5} y={10}>
@@ -19,7 +20,7 @@ export function HeroSection() {
               </div>
             </FadeIn>
 
-            <FadeIn duration={0.55} y={14} delay={0.05}>
+            <FadeIn duration={0.75} y={18} delay={0.05}>
               <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 رعاية طبية موثوقة بخبرة واهتمام
               </h1>
@@ -35,10 +36,10 @@ export function HeroSection() {
 
             <FadeIn duration={0.5} y={12} delay={0.2}>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link href="/contact" className="btn-accent">
+                <Link href="/contact" className="btn-accent fx-pulse-strong">
                   احجز موعد
                 </Link>
-                <Link href="/cv" className="btn-ghost">
+                <Link href="/cv" className="btn-ghost transition-all duration-300 hover:scale-[1.03] hover:shadow-md">
                   تعرف على الطبيب
                 </Link>
               </div>
@@ -46,7 +47,7 @@ export function HeroSection() {
 
             <FadeIn duration={0.55} y={12} delay={0.28}>
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                <div className="card px-4 py-4">
+                <div className="card px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg">
                   <div className="text-sm font-extrabold text-foreground">
                     تشخيص دقيق
                   </div>
@@ -54,7 +55,7 @@ export function HeroSection() {
                     تقييم شامل وخطة علاج واضحة
                   </div>
                 </div>
-                <div className="card px-4 py-4">
+                <div className="card px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg">
                   <div className="text-sm font-extrabold text-foreground">
                     جراحة مفاصل
                   </div>
@@ -62,7 +63,7 @@ export function HeroSection() {
                     استبدال الركبة والورك والمفاصل
                   </div>
                 </div>
-                <div className="card px-4 py-4">
+                <div className="card px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg">
                   <div className="text-sm font-extrabold text-foreground">
                     أورام العظام
                   </div>
@@ -82,8 +83,8 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
             >
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-surface shadow-sm">
-              <div className="absolute inset-0 opacity-80">
+              <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface shadow-sm transition-all duration-300 hover:shadow-xl">
+              <div className="absolute inset-0 opacity-90">
                 <div
                   className="h-full w-full"
                   style={{
@@ -92,10 +93,16 @@ export function HeroSection() {
                   }}
                 />
               </div>
+              <div className="pointer-events-none absolute -left-10 -top-10 h-44 w-44 rounded-full bg-secondary/25 blur-2xl fx-blob" />
+              <div className="pointer-events-none absolute -bottom-12 -right-12 h-56 w-56 rounded-full bg-primary/22 blur-2xl fx-blob [animation-delay:-5s]" />
+              <div className="pointer-events-none absolute left-1/2 top-1/3 h-52 w-52 -translate-x-1/2 rounded-full bg-accent/18 blur-2xl fx-blob [animation-delay:-9s]" />
               <div className="relative p-4 sm:p-6">
-                <HeroImageOnce
-                  className="aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
-                />
+                <div className="relative overflow-hidden rounded-2xl bg-slate-100 transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:rotate-[0.35deg] group-hover:shadow-lg active:-translate-y-1 active:rotate-[0.35deg] active:shadow-lg">
+                  <HeroImageOnce className="aspect-[4/5]" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-within:opacity-100 active:opacity-100">
+                    <div className="absolute inset-0 fx-shimmer" />
+                  </div>
+                </div>
                 <div className="mt-4 flex items-center justify-between gap-4 rounded-2xl border border-border bg-background px-4 py-3">
                   <div>
                     <div className="text-sm font-extrabold text-foreground">
@@ -105,7 +112,7 @@ export function HeroSection() {
                       عظام • مفاصل • أورام العظام
                     </div>
                   </div>
-                  <span className="badge-primary">أبها</span>
+                  <span className="badge-primary fx-float">أبها</span>
                 </div>
               </div>
             </div>
